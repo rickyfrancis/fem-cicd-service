@@ -11,15 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Build Astro
+        uses: ./.github/actions/build-astro
         with:
-          node-version: 22.22
-      - run: npm ci
-      - run: npm run build
-      - uses: actions/upload-artifact@v4
-        with:
-          name: dist
-          path: dist/
+          node-version: '22'
+          artifact-name: dist
 
   deploy:
     runs-on: ubuntu-latest
