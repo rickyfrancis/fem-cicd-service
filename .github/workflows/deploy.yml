@@ -1,4 +1,4 @@
-# .github/workflows/deploy.yml — POC stage, end of segment 6
+# .github/workflows/deploy.yml — Stable stage, end of segment 10
 name: Deploy
 
 on:
@@ -8,14 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Build Astro
-        uses: ./.github/actions/build-astro
-        with:
-          node-version: '22'
-          artifact-name: dist
+    uses: ./.github/workflows/_build.yml
 
   deploy:
     runs-on: ubuntu-latest
