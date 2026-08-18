@@ -8,6 +8,10 @@ on:
 
 permissions: {}
 
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
 jobs:
   build:
     uses: ./.github/workflows/_build.yml
